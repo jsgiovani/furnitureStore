@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus, faStar } from '@fortawesome/free-solid-svg-icons';
 import { AppContext } from '../useContext';
 import Spinner from './Spinner';
-import Page_404 from '../pages/page_404';
+import Page404 from '../pages/Page404';
 
 const ProductShow = () => {
   const [product, setProduct] = useState({});
@@ -149,7 +149,7 @@ const ProductShow = () => {
         </div>
        
       ):(
-        <Page_404/>
+        <Page404/>
       )}
 
       
