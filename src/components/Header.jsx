@@ -1,5 +1,5 @@
 import { faUser } from '@fortawesome/free-regular-svg-icons'
-import { faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useContext, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'

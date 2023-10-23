@@ -3,25 +3,15 @@ import { AppContext } from '../useContext'
 import axiosConnection from '../config/axios';
 import { useEffect } from 'react';
 
-const Aside = ({filters, setFilters}) => {
-    const {categories, setSearch, setIsSearchActive, products} = useContext(AppContext);
+const Aside = ({setSearchParams, searchParams,fetchProducts}) => {
+    const {categories, products} = useContext(AppContext);
     const searchRef = useRef('');
-    const [keyWordSearch, setKeyWordSearch] = useState('');
     const [companies, setCompanies] = useState([]);
-
-    //searching data by keyword.
-    const searchData = async () =>{
-        
-        try {
-            const {data} = await axiosConnection.get(`api/search/${searchRef.current.value}`);
-            setIsSearchActive(true);
-            setSearch(data.data);
-        } catch (error) {
-            setIsSearchActive(false);
-        }
-    }
+  
+  
 
 
+    //fetch companies
     const fetchCompanies = async ()=>{
         try {
             const {data} = await axiosConnection.get('api/companies');
@@ -31,11 +21,20 @@ const Aside = ({filters, setFilters}) => {
         }
     }
 
+
+    //watch for every change is made in input search, if something is typed in the input send api request to find matched requests 
     useEffect(() => {
-        if (keyWordSearch==='') {
-            setIsSearchActive(false);
+
+        if (searchRef.current.value !=='') {
+            searchParams.set('search', searchRef.current.value);
+            setSearchParams(searchParams);
+        }else{
+            searchParams.delete('search');
+            setSearchParams(searchParams);
         }
-    }, [keyWordSearch])
+    }, [searchRef.current.value])
+
+    
 
 
     useEffect(() => {
@@ -43,15 +42,12 @@ const Aside = ({filters, setFilters}) => {
     }, [])
 
 
-
-
-
   return (
     <aside className='aside'>
 
         <h2 className='mb-3'>Short by:</h2>
 
-        <input  className='mb-2 unset' type="search" name="search" id="search" placeholder='Search product...' ref={searchRef} onChange={()=>{searchData(); setKeyWordSearch(searchRef.current.value)}}  />
+        <input  className='mb-2 unset' type="search" name="search" id="search" placeholder='Search product...' ref={searchRef} onChange={()=>{fetchProducts()}}  />
         <section className='categories'>
             <h4 className='mb-1'>Categories</h4>
             <div className='btns-categories aside-section'>
@@ -61,7 +57,7 @@ const Aside = ({filters, setFilters}) => {
                         <button 
                             key={id}
                             className='unset cursor-pointer'
-                            onClick={()=>{setFilters({...filters,...{categoryId:[id]}})}}
+                            onClick={()=>{searchParams.set('category', id); setSearchParams(searchParams)}}
                         >
                             { ` ${name} (${products.filter(product => product.categoryId===id).length})` }
                         </button>
@@ -81,7 +77,7 @@ const Aside = ({filters, setFilters}) => {
                         <button 
                             key={id}
                             className='unset cursor-pointer'
-                            onClick={()=>{setFilters({...filters,...{companyId:[id]}})}}
+                            onClick={()=>{searchParams.set('company', id); setSearchParams(searchParams)}}
                         >
                             { ` ${name} (${products.filter(product => product.companyId===id).length})`}
                         </button>

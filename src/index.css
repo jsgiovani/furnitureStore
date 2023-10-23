@@ -3,6 +3,7 @@
   --primary-color:#fff;
   --secoundary-color: #AAAAAA;
   --color-white:#fff;
+  --color-white-darken: #DEDEDD;
   --color-black: #000;
   --color-active:#F9D4BD;
   --color-orange: #EB7025;
@@ -10,6 +11,7 @@
   --color-yellow:#EBBC00;
   --color-red: #E6533C;
   --color-red-light: #FCEDEB;
+
 }
 
 
@@ -635,6 +637,30 @@ width: 5rem;
     .products-container{
         flex-basis: 73%;
     }
+}
+
+
+.filters{
+    padding: 1rem 2rem;
+    background-color: var(--color-white-darken);
+    margin-bottom: 1rem;
+}
+
+
+.filters .filter-title{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.filters .filter{
+    font-size: 1.2rem;
+    border-radius: 2px;
+    background-color: var(--color-white);
+    padding: 0.5rem 1rem;
+}
+
+.filters button{
+  color: var(--color-red);
 }
 
 

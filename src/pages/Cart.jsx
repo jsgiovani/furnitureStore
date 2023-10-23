@@ -49,7 +49,7 @@ const Cart = () => {
 
 
                 {auth ? (
-                    <button className='btn'>Check Out</button>
+                    <Link className='btn' to ="/checkout">Check Out</Link>
                 ):(
                     <Link className='unset btn' to ="/auth/login">Login</Link>
                 )}

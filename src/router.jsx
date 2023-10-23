@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 import AuthLayout from "./layouts/AuthLayout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import CheckOut from "./pages/CheckOut";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
             path:'/cart/',
             element:<Cart/>
         },
+        {
+            path:'/checkout/',
+            element:<CheckOut/>
+        },
+
       ]
     },
     

@@ -9,8 +9,6 @@ const AppProvider = ({children}) =>{
     const [currentCategory, setCurrentCategory] = useState({});
     const [auth, setAuth] = useState(false);
     const [user, setUser] = useState({});
-    const [search, setSearch] = useState([]);
-    const [isSearchActive, setIsSearchActive] = useState(false);
 
     //check local storage, if not empty set cart with local storage value else empty cart
     const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : []);
@@ -101,11 +99,7 @@ const AppProvider = ({children}) =>{
             auth,
             setAuth,
             setUser,
-            user,
-            search,
-            setSearch,
-            isSearchActive,
-            setIsSearchActive
+            user
          }}>
             {children}
         </AppContext.Provider>
