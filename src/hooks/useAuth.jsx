@@ -54,8 +54,6 @@ const useAuth = ({middleware, url}) => {
     const register = async (dt, setAlerts) =>{
         try {
             const request = await axiosConnection.post('api/register', dt);
-            console.log(request);
-
             const {data} = await axiosConnection.get('/api/user',{
                 headers:{
                     Authorization: `Bearer ${request.data.token}`

@@ -8,6 +8,7 @@ import AuthLayout from "./layouts/AuthLayout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import CheckOut from "./pages/CheckOut";
+import Orders from "./pages/Orders";
 
 const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         {
             path:'/checkout/',
             element:<CheckOut/>
+        },
+        {
+            path:'/orders/',
+            element:<Orders/>
         },
 
       ]

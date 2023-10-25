@@ -49,7 +49,7 @@ const ProductCart = ({product}) => {
             </button>
         </div>
 
-        <p className='subtotal'>Subtotal: ${price*productAmount}</p>
+        <p className='subtotal'>${price*productAmount}</p>
 
         <button 
             className='unset cursor-pointer btn-delete'

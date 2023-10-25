@@ -95,6 +95,7 @@ const AppProvider = ({children}) =>{
             setCurrentCategory,
             handleCart,
             cart,
+            setCart,
             removeProduct,
             auth,
             setAuth,
