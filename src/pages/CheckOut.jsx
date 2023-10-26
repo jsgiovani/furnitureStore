@@ -96,7 +96,7 @@ const CheckOut = () => {
                             )}
                         </div>
 
-                        <input className='unset p-2' type="text" name="name" id="name" value={'hola'} placeholder='Full Name' ref={nameRef} />
+                        <input className='unset p-2' type="text" name="name" id="name" placeholder='Full Name' ref={nameRef} />
                         <input className='unset p-2' type="text" name="address" id="address" placeholder='Delivery address' ref={addressRef} />
                         <input className='unset p-2 cursor-pointer btn-checkout' type="submit" value="Place your order" />
                     </form>
