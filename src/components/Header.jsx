@@ -65,7 +65,8 @@ const Header = () => {
 
         {auth ? (
             <nav className={`nav-auth flex gap-1 ${navAuth ? 'active':''}`} onMouseOver={()=>{{ setNavAuth(true) }} } onMouseLeave={()=> {setNavAuth(false)}} >
-                <Link to="/auth/account">My Account</Link>
+                <Link to="#">My Account</Link>
+                <Link to="/orders">My Orders</Link>
                 <button className='unset cursor-pointer' onClick={()=>{salir()}}> Logout</button>
             </nav>
         ):(

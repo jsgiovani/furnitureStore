@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axiosConnection from '../config/axios'
 import { Link } from 'react-router-dom';
+import Spinner from '../components/Spinner';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
   //fetch orders from api
   const fetchOrders = async()=>{
@@ -15,7 +17,7 @@ const Orders = () => {
         });
 
         setOrders(data.data)
-        console.log(data.data);
+        setIsLoading(false);
         
     } catch (error) {
         console.log(error);
@@ -30,20 +32,41 @@ const Orders = () => {
   }, [])
 
 
+  if (isLoading) return <Spinner/>
+
   return (
     <main className='container'>
         <h1>Your Orders</h1>
+        <hr />
         {orders.length > 0 ? (
-            <div className="orders">
-                {orders.map((order) => {
-                    const {id, userName, products, price} = order;
-                    return(
-                        <div key={id}>
-                            <p>{userName}</p>
-                        </div>
-                    );
-                })}
-            </div>
+            <table className='table'>
+                <thead className='thead'>
+                    <tr className='tr'>
+                        <th className='th'>Name</th>
+                        <th className='th'>Address</th>
+                        <th className='th'>Products</th>
+                        <th className='th'>Cost</th>
+                        <th className='th'>Date</th>
+                    </tr>
+                </thead>
+
+                <tbody className='tb'>
+                    {orders.map((item) =>{
+                        const {id, userName, address, products, price,date} = item
+                        return(
+                            <tr key={item.id}>
+                                <td className='td'>{userName}</td>
+                                <td className='td'>{address}</td>
+                                <td className='td'>{products}</td>
+                                <td className='td'>${price}</td>
+                                <td className='td'>{date}</td>
+                            </tr>
+                        );
+                    })}
+
+                </tbody>
+            </table>
+            
         ):(
              <div className='empty-cart my-6 checkout'>
                 <p className='no-items text-center my-6'>No items yet</p>

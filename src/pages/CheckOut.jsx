@@ -114,10 +114,6 @@ const CheckOut = () => {
                 </div>
 
 
-
-                
-
-
             </div>
         ):(
             <div className='empty-cart my-6 checkout'>
