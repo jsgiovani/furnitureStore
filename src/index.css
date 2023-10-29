@@ -43,7 +43,7 @@ body {
 
 
 .container{
-  padding: 1rem 3%;
+  padding: 1rem 2%;
 }
 
 
@@ -1041,14 +1041,14 @@ hr{
 }
 
 .auth-container{
-   padding: 1rem 12%;
+   padding: 1rem 4%;
    margin-top: 30%;
 }
 
 
 @media (min-width: 768px){
     .auth-container{
-        padding: 1rem 38%;
+        padding: 1rem 35%;
         margin-top: 5rem;
     }
          
