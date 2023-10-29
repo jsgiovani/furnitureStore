@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import axiosConnection from './config/axios';
+import useAuth from './hooks/useAuth';
 
 const AppContext = createContext();
 
@@ -45,7 +46,7 @@ const AppProvider = ({children}) =>{
     }
 
 
-    //add new elemento cart
+    //add new element cart
     const handleCart = (element)=>{
 
         //verify if element to add is added or not
@@ -73,8 +74,21 @@ const AppProvider = ({children}) =>{
         setCart(cart.filter(item => item.id !== productId))
     };
 
+    const getUser = async ()=>{
 
-
+        try {
+            const {data} = await axiosConnection.get('/api/user',{
+                headers:{
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+            setAuth(true);
+            setUser(data.data);
+        } catch (error) {
+            setAuth(false);
+            setUser({});
+        }
+    };
 
 
     useEffect(() => {

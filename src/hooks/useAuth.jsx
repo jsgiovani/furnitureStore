@@ -1,13 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import axiosConnection from '../config/axios';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect} from 'react';
 import { AppContext } from '../useContext';
 
 const useAuth = ({middleware, url}) => {
+    const navegate = useNavigate();
     
     const {setAuth, setUser} = useContext(AppContext);
+
     
-    const navegate = useNavigate();
+    //get user
     const getUser = async ()=>{
 
         try {
@@ -23,8 +25,7 @@ const useAuth = ({middleware, url}) => {
             setUser({});
         }
     };
-
-
+    
     //login user
     const login = async (dta, setAlerts)=>{
 
@@ -92,6 +93,7 @@ const useAuth = ({middleware, url}) => {
     useEffect(() => {
         getUser();
     }, [])
+
 
     
   return {login, register, logout};

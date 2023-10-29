@@ -9,11 +9,13 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import CheckOut from "./pages/CheckOut";
 import Orders from "./pages/Orders";
+import Page404 from "./pages/Page404";
 
 const router = createBrowserRouter([
     {
       path: '/',
       element:<Layout/>,
+      errorElement: <Page404/>,
       children:[
         {
             index:true,
@@ -48,6 +50,7 @@ const router = createBrowserRouter([
     {
         path:'/auth',
         element:<AuthLayout/>,
+        errorElement: <Page404/>,
         children: [
             {
                path:'/auth/login',

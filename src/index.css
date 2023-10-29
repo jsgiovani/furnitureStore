@@ -1268,6 +1268,25 @@ thead .th{
 
 /* End Orders */
 
+
+
+/* Page 404 */
+
+.page404{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.page404 a{
+  color: var(--color-orange);
+  
+}
+
+/* End Page 404 */
+
 /* Footer */
 
 

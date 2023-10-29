@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axiosConnection from '../config/axios'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AppContext } from '../useContext';
+import useAuth from '../hooks/useAuth';
 import Spinner from '../components/Spinner';
 
 const Orders = () => {
+
+    const navegate = useNavigate();
+
     const [orders, setOrders] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    
 
   //fetch orders from api
   const fetchOrders = async()=>{
     try {
+
         const {data} = await axiosConnection.get('api/orders',{
             headers:{
                 Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -20,8 +27,7 @@ const Orders = () => {
         setIsLoading(false);
         
     } catch (error) {
-        console.log(error);
-
+        navegate('/auth/login');
     }
 
   }
