@@ -54,12 +54,12 @@ const Orders = () => {
                     {orders.map((item) =>{
                         const {id, userName, address, products, price,date} = item
                         return(
-                            <tr key={item.id}>
-                                <td className='td'>{userName}</td>
-                                <td className='td'>{address}</td>
-                                <td className='td'>{products}</td>
-                                <td className='td'>${price}</td>
-                                <td className='td'>{date}</td>
+                            <tr className='tr' key={item.id}>
+                                <td data-title='Name' className='td'>{userName}</td>
+                                <td data-title ='Address' className='td'>{address}</td>
+                                <td data-title ='Products'  className='td'>{products}</td>
+                                <td data-title ='Price' className='td'>${price}</td>
+                                <td data-title ='Date' className='td'>{date}</td>
                             </tr>
                         );
                     })}
