@@ -1280,7 +1280,7 @@ thead .th{
 }
 
 .footer-section{
-    margin: 0 0 4rem 4rem;
+    margin: 0 0 4rem 0rem;
 }
 
 @media (min-width: 768px){
